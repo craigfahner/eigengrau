@@ -1,0 +1,12 @@
+/* Webfont: EditorialNew-Ultralight */@font-face {
+    font-family: 'EditorialNewUltralight';
+    src: url('EditorialNew-Ultralight.eot'); /* IE9 Compat Modes */
+    src: url('EditorialNew-Ultralight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('EditorialNew-Ultralight.woff') format('woff'), /* Modern Browsers */
+         url('EditorialNew-Ultralight.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('EditorialNew-Ultralight.svg#EditorialNew-Ultralight') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

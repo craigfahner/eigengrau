@@ -1,0 +1,12 @@
+/* Webfont: EditorialNew-Ultrabold */@font-face {
+    font-family: 'EditorialNewUltrabold';
+    src: url('https://cdn.glitch.com/6bed1dbd-60ce-4f29-967d-8d51316ba719%2FEditorialNew-Ultrabold.eot?v=1597776804294'); /* IE9 Compat Modes */
+    src: url('https://cdn.glitch.com/6bed1dbd-60ce-4f29-967d-8d51316ba719%2FEditorialNew-Ultrabold.eot?v=1597776804294?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('https://cdn.glitch.com/6bed1dbd-60ce-4f29-967d-8d51316ba719%2FEditorialNew-Ultrabold.woff?v=1597776804798') format('woff'), /* Modern Browsers */
+         url('https://cdn.glitch.com/6bed1dbd-60ce-4f29-967d-8d51316ba719%2FEditorialNew-Ultrabold.ttf?v=1597776806511') format('truetype'), /* Safari, Android, iOS */
+         url('https://cdn.glitch.com/6bed1dbd-60ce-4f29-967d-8d51316ba719%2FEditorialNew-Ultrabold.svg?v=1597776807966') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
