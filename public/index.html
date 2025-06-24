@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="p5.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="brfv5_js_tk240320_v5.1.5_trial.js"></script>
+    <script src="brfv5_wrapper.js"></script>
+    <script src="https://unpkg.com/tone@13.8.25/build/Tone.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="EditorialNew-Regular.css" />
+    <link rel="stylesheet" type="text/css" href="EditorialNew-Ultrabold.css" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="sketch.js" defer></script>
+
+    <div id="container">
+      <div id="content" class="fader">
+        <div id="alertTextContainer">
+          <p id="loadingText" class="fadeInOut alertText">
+            Loading...
+          </p>
+          <p id="alertText" class="hidden alertText">
+              
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="widget" class="minimized">
+      <p id="widgetIcon" class="minimizedIcon">i</p>
+      <div id="widgetText" class="minimizedText">
+        <p>
+          <span id="title">Eigengrau</span> is a term that describes what is
+          perceived in the absence of light. Users can interact with this
+          instrument by closing their eyes. When closed eyes are detected, a
+          tone is generated, which can be subtly modified by swaying your head
+          left and right. When other users join and close their eyes, their own
+          tones are generated and can be heard by all connected users as a
+          collectively played organ.
+        </p>
+        <p>
+          To recalibrate the eye-tracker, click
+          <a href="#" id="recalibrate">here</a>.
+        </p>
+        <p>
+          Made by
+          <a href="https://www.craigfahner.com" target="_blank">Craig Fahner</a>
+          using <a href="https://p5js.org/" target="_blank">P5.js</a>, 
+          <a href="https://github.com/Tastenkunst/brfv5-browser" target="_blank">BRFv5</a>, 
+          <a href="https://tonejs.github.io/" target="_blank">Tone.js</a>,
+          <a href="https://socket.io/" target="_blank">Socket.io</a>, and
+          <a href="https://glitch.com/" target="_blank">Glitch</a>. Released
+          under the
+          <a href="https://anticapitalist.software/" target="_blank"
+            >Anti-Capitalist Software License</a
+          >.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
