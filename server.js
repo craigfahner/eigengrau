@@ -30,8 +30,45 @@ server.listen(PORT, () => {
 //   console.log("server is listening on port " + port);
 // });
 
+// === consent gate ===
+// "/" serves the privacy notice. Clicking through POSTs to /consent, which sets
+// a session cookie. The artwork (/play) and the socket connection both refuse
+// anyone without that cookie, so the notice can't be bypassed by URL.
+
+const CONSENT_COOKIE = "eigengrau_consent";
+
+function hasConsent(cookieHeader) {
+  return new RegExp("(^|;\\s*)" + CONSENT_COOKIE + "=1(;|$)").test(
+    cookieHeader || ""
+  );
+}
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
+});
+
+app.post("/consent", (req, res) => {
+  // no Max-Age/Expires: cookie is cleared when the browser closes
+  res.setHeader(
+    "Set-Cookie",
+    CONSENT_COOKIE + "=1; Path=/; HttpOnly; SameSite=Lax"
+  );
+  res.redirect(303, "/play");
+});
+
+app.get("/withdraw", (req, res) => {
+  res.setHeader(
+    "Set-Cookie",
+    CONSENT_COOKIE + "=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0"
+  );
+  res.redirect("/");
+});
+
+app.get("/play", (req, res) => {
+  if (!hasConsent(req.headers.cookie)) {
+    return res.redirect("/");
+  }
+  res.sendFile(path.join(__dirname, "views/artwork.html"));
 });
 
 app.use(express.static("public"));
@@ -41,6 +78,12 @@ app.use(express.static("node_modules/p5/lib/addons"));
 // === socket stuff ===
 
 const io = require("socket.io")(server);
+
+// refuse socket connections from clients that haven't consented
+io.use((socket, next) => {
+  if (hasConsent(socket.request.headers.cookie)) return next();
+  next(new Error("consent required"));
+});
 
 io.on("connection", socket => {
   /// -- room assignment zone -- ///
